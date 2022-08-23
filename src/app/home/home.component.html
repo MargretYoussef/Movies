@@ -1,0 +1,65 @@
+<app-header [headerTrendingMovie]="trendingMovies"></app-header>
+
+<div class="container">
+  <!--Trending-->
+  <div class="row py-4">
+    <div class="col-md-4 py-4">
+
+      <div class="brdr w-25 my-3"></div>
+      <h2 class="my-3">Trending Movies <br> To Watch Right Now</h2>
+      <p class="text-muted">Trending Movies To watch Right Now</p>
+      <div class="brdr w-100 my-3"></div>
+
+    </div>
+    <div *ngFor="let movie of trendingMovies" class="col-md-2">
+      <div class="movie position-relative">
+        <a [routerLink]="['/moviedetails' ,movie.id]">
+          <img [src]="imgPrefix+movie.poster_path" class="w-100" alt="">
+          <h3 class="h6 fw-bolder">{{movie.title}}</h3>
+          <div class="vote p-2 fw-border position-absolute top-0 end-0 bg-lights">{{movie.vote_average}}</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!--TV-->
+  <div class="row py-4">
+    <div class="col-md-4 py-4">
+
+      <div class="brdr w-25 my-3"></div>
+      <h2 class="my-3">Trending Tv <br> To Watch Right Now</h2>
+      <p class="text-muted">Trending Tv To watch Right Now</p>
+      <div class="brdr w-100 my-3"></div>
+
+    </div>
+    <div *ngFor="let tv of trendingTv" class="col-md-2">
+      <div class="tv position-relative">
+        <a [routerLink]="['/moviedetails' ,tv.id]">
+          <img [src]="imgPrefix+tv.poster_path" class="w-100" alt="">
+          <h3 class="h6 fw-bolder">{{tv.name}}</h3>
+          <div class="vote p-2 fw-border position-absolute top-0 end-0 bg-lights">{{tv.vote_average}}</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!--People-->
+  <div class="row py-4">
+    <div class="col-md-4 py-4">
+
+      <div class="brdr w-25 my-3"></div>
+      <h2 class="my-3">Trending People <br> To Watch Right Now</h2>
+      <p class="text-muted">Trending People To watch Right Now</p>
+      <div class="brdr w-100 my-3"></div>
+
+    </div>
+    <div *ngFor="let person of trendingPeople" class="col-md-2">
+      <div class="tv position-relative">
+        <a [routerLink]="['/moviedetails' ,person.id]">
+          <img [src]="imgPrefix+person.profile_path" class="w-100" alt="">
+          <h3 class="h6 fw-bolder">{{person.name}}</h3>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
